@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#38516f">
+  <meta name="description" content="Výstavní produktový katalog Advantage-FL s možností odeslat produktovou prezentaci e-mailem.">
+  <title>Advantage-FL | Výstavní prezentace produktů</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><img src="./assets/images/brand/advantage-fl-logo.png" alt="Advantage-FL"></div>
+    <div class="top-meta"><span class="live-dot"></span><div><strong>Výstavní prezentace</strong><span>Dotykový katalog technologií</span></div></div>
+    <div class="top-actions">
+      <button class="pill" id="languageBtn" aria-label="Změnit jazyk"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h7M7.5 3v2c0 4-2 7-5 9M5 9c1.5 2 3.2 3.5 5.5 4.5M14 19l3.5-9 3.5 9M15.2 16h4.6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>CZ</span></button>
+      <button class="icon-btn" id="fullscreenBtn" aria-label="Celá obrazovka"><svg viewBox="0 0 24 24" fill="none"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="sidebar-head">
+      <button class="nav-btn active" data-view="home"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.2 12 4l9 7.2V21h-6v-6H9v6H3v-9.8Z" stroke-width="1.7" stroke-linejoin="round"/></svg><span>Detail</span></button>
+      <button class="nav-btn" id="resetBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 0 2.3-5.7L4 8.6M4 4v4.6h4.6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reset</span></button>
+    </div>
+    <div class="sidebar-panel">
+      <div class="sidebar-kicker">Katalog technologií</div>
+      <h2 class="sidebar-title">Vyberte produkt</h2>
+      <label class="searchbox"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke-width="1.7"/><path d="m16 16 4 4" stroke-width="1.7" stroke-linecap="round"/></svg><input id="catalogSearch" type="search" placeholder="Hledat produkt nebo technologii"></label>
+      <div class="catalog" id="catalog"></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="stage">
+      <article class="card media-card">
+        <div class="media-top">
+          <div class="crumb"><span>Řešení</span><span>›</span><b>Povrchové úpravy</b></div>
+          <div class="badges"><span class="badge">OTEC</span><span class="badge outline">Výstavní demo</span></div>
+        </div>
+        <div class="product-visual">
+          <img id="heroImage" src="./assets/images/products/cf-element.jpg" alt="CF Element">
+        </div>
+        <div class="media-footer">
+          <div class="media-hint"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12" stroke-width="1.6" stroke-linecap="round"/><path d="M8 8h8v8H8z" opacity="0"/></svg><span>Produkty přepínejte přes menu Produkty</span></div>
+        </div>
+      </article>
+
+      <article class="card detail-card">
+        <div class="detail-head">
+          <div class="eyebrow"><span id="categoryLabel">Povrchové úpravy a omílání</span><span class="model-count" id="modelCount">1 / 4</span></div>
+          <h1 id="productName">CF Element</h1>
+          <div class="subtitle" id="productSubtitle">Cenově dostupný základní model</div>
+          <p class="lead" id="productLead"></p>
+          <div class="segment-row" id="segments"></div>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="overview">Přehled</button>
+          <button class="tab" data-tab="features">Vlastnosti</button>
+          <button class="tab" data-tab="usage">Použití</button>
+        </div>
+        <div class="tab-panel" id="tabPanel"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="actionbar">
+    <div class="selected"><div class="selected-img"><img id="selectedImage" src="./assets/images/products/cf-element.jpg" alt=""></div><div class="selected-meta"><span>Vybraný produkt</span><strong id="selectedName">CF Element</strong></div></div>
+    <div class="action-note">Zákazník dostane produktovou prezentaci a kontakt na obchodníka.</div>
+    <div class="actions">
+      <button class="btn secondary" id="consultBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8Z" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 9h8M8 13h5" stroke-width="1.7" stroke-linecap="round"/></svg>Poptat konzultaci</button>
+      <button class="btn primary" id="emailBtn"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5h16v14H4V5Z" stroke-width="1.8" stroke-linejoin="round"/><path d="m4 7 8 6 8-6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Poslat PDF na e-mail</button>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-backdrop" id="emailModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal">
+    <div id="formView">
+      <div class="modal-top"><div><div class="modal-kicker">Odeslat produktovou prezentaci</div><h2 id="modalTitle">Kam máme poslat PDF?</h2><p>Po potvrzení zákazník obdrží přehled produktu, hlavní parametry a kontakt na specialistu Advantage-FL.</p></div><button class="close-btn modal-close" aria-label="Zavřít"><svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
+      <form class="modal-body" id="emailForm">
+        <div class="product-summary"><img id="modalImage" src="./assets/images/products/cf-element.jpg" alt=""><div><span>Vybraný produkt</span><strong id="modalProduct">CF Element</strong></div></div>
+        <div class="field-grid"><div class="field"><label for="customerEmail">E-mail zákazníka</label><input id="customerEmail" type="email" autocomplete="email" inputmode="email" placeholder="např. jan.novak@firma.cz" required></div><div class="field"><label for="pdfLanguage">Jazyk PDF</label><select id="pdfLanguage"><option>Čeština</option><option>English</option><option>Deutsch</option></select></div></div>
+        <label class="consent"><input type="checkbox" id="consent" required><span>Zákazník souhlasí s odesláním produktových materiálů na uvedený e-mail. Adresa bude použita pouze pro vyřízení tohoto požadavku.</span></label>
+        <div class="modal-actions"><button type="button" class="btn secondary modal-close">Zrušit</button><button type="submit" class="btn primary" id="sendBtn"><svg viewBox="0 0 24 24" fill="none"><path d="m4 4 16 8-16 8 3-8-3-8Z" stroke-width="1.8" stroke-linejoin="round"/><path d="M7 12h7" stroke-width="1.8" stroke-linecap="round"/></svg>Odeslat prezentaci</button></div>
+        <div class="status-note" id="statusNote"><span class="spinner"></span>Generuji PDF a připravuji e-mail...</div>
+      </form>
+    </div>
+    <div class="success-view" id="successView"><div class="success-icon"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 4 4L19 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="modal-kicker">Hotovo</div><h2>Prezentace je na cestě</h2><p>PDF k produktu <strong id="successProduct">CF Element</strong> bylo odesláno na <span class="success-email" id="successEmail"></span>.</p><button class="btn primary" id="doneBtn">Zpět k produktům</button></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+  <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
